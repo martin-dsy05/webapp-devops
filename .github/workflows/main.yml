@@ -1,0 +1,23 @@
+name: CI-CD WebApp
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar archivo principal
+        run: |
+          echo "Iniciando verificación de la aplicación..."
+          test -f index.html
+          echo "index.html encontrado correctamente."
+
+      - name: Finalizar proceso
+        run: echo "Proceso CI/CD completado correctamente."
